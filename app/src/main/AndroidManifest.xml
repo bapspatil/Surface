@@ -22,6 +22,12 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <receiver android:name=".sync.LayerPushReceiver">
+            <intent-filter>
+                <action android:name="com.layer.sdk.PUSH" />
+                <category android:name="layer:///apps/staging/bc6f8c1e-11dc-11e9-9982-cb9893820284" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

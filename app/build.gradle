@@ -27,6 +27,9 @@ android {
     dataBinding {
         enabled true
     }
+    buildTypes.each {
+        it.buildConfigField 'String', 'LAYER_APP_ID', LayerAppId
+    }
 }
 
 ext {
@@ -54,6 +57,9 @@ dependencies {
     androidTestImplementation "com.android.support.test.espresso:espresso-core:3.0.2"
 
     implementation "com.layer.xdk:xdk:$layerVer"
+    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
+    implementation 'com.google.code.gson:gson:2.8.5'
 }
 
 apply plugin: 'com.google.gms.google-services'
