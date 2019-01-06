@@ -18,7 +18,9 @@ import retrofit2.Response
 
 class SurfaceApp : Application(), LayerConnectionListener, LayerAuthenticationListener {
 
-    private lateinit var layerClient: LayerClient
+    companion object {
+        var layerClient: LayerClient? = null
+    }
 
     override fun onCreate() {
         super.onCreate()
@@ -27,28 +29,28 @@ class SurfaceApp : Application(), LayerConnectionListener, LayerAuthenticationLi
 
         LayerClient.applicationCreated(this)
 
-        layerClient.registerConnectionListener(this)
-        layerClient.registerAuthenticationListener(this)
+        layerClient?.registerConnectionListener(this)
+        layerClient?.registerAuthenticationListener(this)
 
-        if(!layerClient.isConnected)
-            layerClient.connect()
+        if(!layerClient?.isConnected!!)
+            layerClient?.connect()
     }
 
-    override fun onConnectionConnected(p0: LayerClient?) {
-        layerClient.authenticate()
+    override fun onConnectionConnected(layerClient: LayerClient?) {
+        layerClient?.authenticate()
     }
 
-    override fun onConnectionError(p0: LayerClient?, p1: LayerException?) {
+    override fun onConnectionError(layerClient: LayerClient?, e: LayerException?) {
     }
 
-    override fun onConnectionDisconnected(p0: LayerClient?) {
+    override fun onConnectionDisconnected(layerClient: LayerClient?) {
     }
 
     override fun onAuthenticated(layerClient: LayerClient?, userId: String?) {
         Log.e("LAYER_AUTHENTICATED", "User authenticated: $userId")
     }
 
-    override fun onDeauthenticated(p0: LayerClient?) {
+    override fun onDeauthenticated(layerClient: LayerClient?) {
     }
 
     override fun onAuthenticationError(layerClient: LayerClient?, exception: LayerException?) {
@@ -57,7 +59,7 @@ class SurfaceApp : Application(), LayerConnectionListener, LayerAuthenticationLi
     override fun onAuthenticationChallenge(layerClient: LayerClient?, nonce: String?) {
         lateinit var identityToken: String
         val iwsService = IdentityTokenService.retrofit.create(IdentityTokenService::class.java)
-        val iwsCall = iwsService.getIdentityToken("a157b7be-1cdd-40fa-bcb2-9166f0a8fe7a", nonce)
+        val iwsCall = iwsService.getIdentityToken("hi@bapspatil.com", "surface", nonce)
         iwsCall.enqueue(object : Callback<IWSResponse> {
             override fun onFailure(call: Call<IWSResponse>, t: Throwable) {
                 // Do nothing here
@@ -72,6 +74,4 @@ class SurfaceApp : Application(), LayerConnectionListener, LayerAuthenticationLi
         })
         Log.d("LAYER_NONCE", nonce)
     }
-
-    fun getLayerClient() = layerClient
 }

@@ -16,10 +16,10 @@ interface IdentityTokenService {
 
     @FormUrlEncoded
     @POST("authenticate")
-    fun getIdentityToken(@Field("user_id") USER_ID: String?, @Field("nonce") NONCE: String?): Call<IWSResponse>
+    fun getIdentityToken(@Field("email") EMAIL: String?, @Field("password") PASSWORD: String?, @Field("nonce") NONCE: String?): Call<IWSResponse>
 
     companion object {
-        const val BASE_URL = "https://surface-iws-baps.herokuapp.com/"
+        const val BASE_URL = "https://surface-baps.herokuapp.com/"
         val retrofit = Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
