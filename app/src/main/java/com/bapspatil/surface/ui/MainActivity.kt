@@ -1,7 +1,12 @@
-package com.bapspatil.surface
+package com.bapspatil.surface.ui
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
+import com.bapspatil.surface.R
+
+/*
+** Created by Bapusaheb Patil {@link https://bapspatil.com}
+*/
 
 class MainActivity : AppCompatActivity() {
 

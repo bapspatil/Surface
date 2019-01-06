@@ -1,7 +1,7 @@
 
 # Surface
 
-A chat messaging app for Android that uses Layer's SDK.
+An Android chat messaging app using Layer's XDK.
 
 ## Libraries Used
 
