@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Created by Bapusaheb Patil {@link https://bapspatil.com}
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_margin="8dp"
+              android:layout_gravity="end"
+              android:layout_height="wrap_content">
+
+  <TextView
+      android:id="@+id/messageBodyTextView"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      style="@style/TextAppearance.AppCompat.Body1"
+      android:background="@color/md_light_blue_500"
+      android:textColor="@color/md_white_1000"
+      android:padding="16dp"
+      android:layout_gravity="end"
+      tools:text="Hi, this is a text message"/>
+</LinearLayout>
