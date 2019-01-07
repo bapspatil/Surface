@@ -1,33 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.bapspatil.surface">
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
-    <application
-            android:name=".SurfaceApp"
-            android:allowBackup="true"
-            android:icon="@mipmap/ic_launcher"
-            android:label="@string/app_name"
-            android:roundIcon="@mipmap/ic_launcher"
-            android:supportsRtl="true"
-            android:theme="@style/AppTheme">
-        <activity android:name=".ui.MainActivity"
-        android:screenOrientation="portrait"
-        android:launchMode="singleTop">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+  <uses-permission android:name="android.permission.INTERNET"/>
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
-        </activity>
-        <receiver android:name=".sync.LayerPushReceiver">
-            <intent-filter>
-                <action android:name="com.layer.sdk.PUSH" />
-                <category android:name="layer:///apps/staging/bc6f8c1e-11dc-11e9-9982-cb9893820284" />
-            </intent-filter>
-        </receiver>
-    </application>
+  <application
+      android:name=".SurfaceApp"
+      android:allowBackup="true"
+      android:icon="@mipmap/ic_launcher"
+      android:label="@string/app_name"
+      android:roundIcon="@mipmap/ic_launcher"
+      android:supportsRtl="true"
+      android:theme="@style/AppTheme">
+    <activity
+        android:name=".ui.MainActivity"
+        android:launchMode="singleTop"
+        android:screenOrientation="portrait">
+
+    </activity>
+
+    <receiver android:name=".sync.LayerPushReceiver">
+      <intent-filter>
+        <action android:name="com.layer.sdk.PUSH"/>
+
+        <category android:name="@string/R_LAYER_APP_ID"/>
+      </intent-filter>
+    </receiver>
+
+    <activity android:name=".ui.LoginActivity"
+              android:launchMode="singleTop"
+              android:screenOrientation="portrait"
+              android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN"/>
+
+        <category android:name="android.intent.category.LAUNCHER"/>
+      </intent-filter>
+    </activity>
+  </application>
 
 </manifest>

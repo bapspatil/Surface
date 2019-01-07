@@ -2,21 +2,15 @@ package com.bapspatil.surface
 
 import android.app.Application
 import android.util.Log
-import com.bapspatil.surface.model.IWSResponse
-import com.bapspatil.surface.util.IdentityTokenService
 import com.layer.sdk.LayerClient
 import com.layer.sdk.exceptions.LayerException
-import com.layer.sdk.listeners.LayerAuthenticationListener
 import com.layer.sdk.listeners.LayerConnectionListener
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 /*
 ** Created by Bapusaheb Patil {@link https://bapspatil.com}
 */
 
-class SurfaceApp : Application(), LayerConnectionListener, LayerAuthenticationListener {
+class SurfaceApp : Application(), LayerConnectionListener {
 
     companion object {
         var layerClient: LayerClient? = null
@@ -30,48 +24,21 @@ class SurfaceApp : Application(), LayerConnectionListener, LayerAuthenticationLi
         LayerClient.applicationCreated(this)
 
         layerClient?.registerConnectionListener(this)
-        layerClient?.registerAuthenticationListener(this)
 
         if(!layerClient?.isConnected!!)
             layerClient?.connect()
+
     }
 
     override fun onConnectionConnected(layerClient: LayerClient?) {
-        layerClient?.authenticate()
+        Log.d("LAYER_CONNECTED", "Connected successfully.")
     }
 
     override fun onConnectionError(layerClient: LayerClient?, e: LayerException?) {
+        Log.d("LAYER_CONNECTION_ERROR", e.toString())
     }
 
     override fun onConnectionDisconnected(layerClient: LayerClient?) {
-    }
-
-    override fun onAuthenticated(layerClient: LayerClient?, userId: String?) {
-        Log.e("LAYER_AUTHENTICATED", "User authenticated: $userId")
-    }
-
-    override fun onDeauthenticated(layerClient: LayerClient?) {
-    }
-
-    override fun onAuthenticationError(layerClient: LayerClient?, exception: LayerException?) {
-    }
-
-    override fun onAuthenticationChallenge(layerClient: LayerClient?, nonce: String?) {
-        lateinit var identityToken: String
-        val iwsService = IdentityTokenService.retrofit.create(IdentityTokenService::class.java)
-        val iwsCall = iwsService.getIdentityToken("hi@bapspatil.com", "surface", nonce)
-        iwsCall.enqueue(object : Callback<IWSResponse> {
-            override fun onFailure(call: Call<IWSResponse>, t: Throwable) {
-                // Do nothing here
-            }
-
-            override fun onResponse(call: Call<IWSResponse>, response: Response<IWSResponse>) {
-                if(response.body() != null) {
-                    identityToken = response.body()?.identityToken!!
-                    layerClient?.answerAuthenticationChallenge(identityToken)
-                }
-            }
-        })
-        Log.d("LAYER_NONCE", nonce)
+        Log.d("LAYER_DISCONNECT", "Disconnected successfully.")
     }
 }

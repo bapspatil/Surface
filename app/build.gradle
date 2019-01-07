@@ -29,6 +29,7 @@ android {
     }
     buildTypes.each {
         it.buildConfigField 'String', 'LAYER_APP_ID', LayerAppId
+        it.resValue 'string', 'R_LAYER_APP_ID', LayerAppId
     }
 }
 
@@ -39,7 +40,9 @@ ext {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "org.jetbrains.anko:anko:$anko_version"
+    implementation "org.jetbrains.anko:anko-design:$anko_version"
     implementation "com.android.support:appcompat-v7:$supVer"
     implementation "com.android.support:support-v4:$supVer"
     implementation "com.android.support:support-media-compat:$supVer"
