@@ -140,7 +140,7 @@ class MainActivity : AppCompatActivity(), LayerChangeEventListener {
 
                     val distanceMatrixApi = DistanceMatrixService.retrofit.create(DistanceMatrixService::class.java)
                     val distanceMatrixCall =
-                        distanceMatrixApi.getDistanceMatrix(origin, destination, BuildConfig.GOOGLE_MAPS_API_KEY)
+                        distanceMatrixApi.getDistanceMatrix(origin, destination, "imperial", BuildConfig.GOOGLE_MAPS_API_KEY)
                     Log.e("DISTANCE_CALL", distanceMatrixCall.toString())
                     distanceMatrixCall.enqueue(object : Callback<DistanceMatrixResponse> {
                         override fun onFailure(call: Call<DistanceMatrixResponse>, t: Throwable) {}

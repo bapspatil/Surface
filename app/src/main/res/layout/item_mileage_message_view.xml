@@ -8,26 +8,31 @@
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:orientation="vertical"
-		android:paddingStart="8dp"
-		android:paddingEnd="8dp"
-		android:background="@color/md_white_1000" android:layout_margin="24dp">
+		android:background="@drawable/bg_white"
+		android:layout_margin="24dp">
 	<Button
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:text="Mileage"
 			android:textAllCaps="false"
 			android:textSize="16sp"
+			android:layout_marginStart="8dp"
+			android:layout_marginEnd="8dp"
 			android:gravity="start|center_vertical"
 			android:drawablePadding="4dp"
 			android:drawableStart="@drawable/ic_location_on_light_blue_700_24dp"
 			android:background="@null"/>
 	<View
 			android:layout_width="match_parent"
+			android:layout_marginStart="8dp"
+			android:layout_marginEnd="8dp"
 			android:layout_height="1dp"
 			android:background="@color/md_grey_300"/>
 	<TextView
 			android:layout_width="wrap_content"
 			android:layout_marginTop="8dp"
+			android:layout_marginStart="8dp"
+			android:layout_marginEnd="8dp"
 			android:layout_height="wrap_content"
 			android:textStyle="bold"
 			android:text="NAME"/>
@@ -36,9 +41,13 @@
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:inputType="textPersonName"
+			android:layout_marginStart="8dp"
+			android:layout_marginEnd="8dp"
 			android:hint="Enter your name"/>
 	<TextView
 			android:layout_width="wrap_content"
+			android:layout_marginStart="8dp"
+			android:layout_marginEnd="8dp"
 			android:layout_marginTop="8dp"
 			android:layout_height="wrap_content"
 			android:textStyle="bold"
@@ -46,6 +55,8 @@
 	<EditText
 			android:id="@+id/startLocationEt"
 			android:layout_width="match_parent"
+			android:layout_marginStart="8dp"
+			android:layout_marginEnd="8dp"
 			android:layout_height="wrap_content"
 			android:hint="Select Start location"
 			android:focusable="false"
@@ -53,6 +64,8 @@
 	<TextView
 			android:layout_width="wrap_content"
 			android:layout_marginTop="8dp"
+			android:layout_marginStart="8dp"
+			android:layout_marginEnd="8dp"
 			android:layout_height="wrap_content"
 			android:textStyle="bold"
 			android:text="END LOCATION"/>
@@ -60,6 +73,8 @@
 			android:id="@+id/endLocationEt"
 			android:layout_width="match_parent"
 			android:focusable="false"
+			android:layout_marginStart="8dp"
+			android:layout_marginEnd="8dp"
 			android:layout_height="wrap_content"
 			android:hint="Select End location"
 			android:drawableEnd="@drawable/ic_navigate_next_grey_500_24dp"/>
@@ -75,7 +90,7 @@
 					android:id="@+id/cancelBtn"
 					android:layout_width="0dp"
 					android:layout_weight="1"
-					android:background="@color/md_red_500"
+					android:background="@drawable/bg_button_cancel"
 					android:layout_margin="8dp"
 					android:text="CANCEL"
 					android:textColor="@color/md_white_1000"
@@ -85,7 +100,7 @@
 					android:layout_width="0dp"
 					android:layout_weight="1"
 					android:layout_margin="8dp"
-					android:background="@color/md_blue_500"
+					android:background="@drawable/bg_button_send"
 					android:text="SEND"
 					android:textColor="@color/md_white_1000"
 					android:layout_height="wrap_content"/>
@@ -114,7 +129,7 @@
 					android:layout_centerVertical="true"
 					android:layout_marginTop="8dp"
 					android:layout_marginBottom="8dp"
-					android:textColor="@color/md_black_1000"
+					android:textColor="@color/md_blue_900"
 					android:layout_marginEnd="12dp"
 					android:textSize="20sp"
 					tools:text="25 miles"/>

@@ -82,6 +82,7 @@ class MessagesAdapter(
                 )
                 params.weight = 1.0f
                 params.gravity = Gravity.START
+
                 val holder = MapsMessageVH(view)
                 holder.nameEt.isFocusable = false
                 holder.nameEt.setOnClickListener { null }

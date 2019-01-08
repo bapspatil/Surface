@@ -14,7 +14,7 @@ import retrofit2.http.Query
 interface DistanceMatrixService {
 
     @GET("distancematrix/json")
-    fun getDistanceMatrix(@Query("origins") ORIGINS: String?, @Query("destinations") DESTINATIONS: String?, @Query("key") KEY: String?): Call<DistanceMatrixResponse>
+    fun getDistanceMatrix(@Query("origins") ORIGINS: String?, @Query("destinations") DESTINATIONS: String?,@Query("units") UNITS: String, @Query("key") KEY: String?): Call<DistanceMatrixResponse>
 
     companion object {
         const val BASE_URL = "https://maps.googleapis.com/maps/api/"
