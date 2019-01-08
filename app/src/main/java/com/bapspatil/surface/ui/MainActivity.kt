@@ -153,14 +153,8 @@ class MainActivity : AppCompatActivity(), LayerChangeEventListener {
                                 mMileageDistance = response.body()?.rows?.get(0)?.elements?.get(0)?.distance?.text
                                 messagesAdapter.notifyDistanceCalculated(mMileageDistance)
                                 if(mName != null && mOrigin != null && mDestination != null && mMileageDistance != null) {
-//                                    val metadata = MileageMetadata(mName, mOrigin, mDestination, mMileageDistance)
-//                                    val messagePart = SurfaceApp.layerClient?.newMessagePart(
-//                                        MileageModel.MIME_TYPE,
-//                                        MileageMetadata.toStream(metadata)
-//                                    )
                                     val mileageSender = MileageSender(this@MainActivity, SurfaceApp.layerClient, Gson())
                                     mileageSender.setConversation(convo)
-//                        val message = SurfaceApp.layerClient?.newMessage(Collections.singleton(messagePart))
                                     mileageSender.requestSend(mName, mOrigin, mDestination, mMileageDistance)
                                 }
                             }
@@ -174,18 +168,10 @@ class MainActivity : AppCompatActivity(), LayerChangeEventListener {
         messagesRv.scrollToPosition(0)
 
         mapButton.setOnClickListener {
-//            if (mMetadata?.name != null && mMetadata?.origin != null && mMetadata?.destination != null && mMetadata?.mileageDistance != null) {
-//            val messagePart = SurfaceApp.layerClient?.newMessagePart(MileageModel.MIME_TYPE, MileageMetadata.toStream(mMetadata))
-//            val message = SurfaceApp.layerClient?.newMessage(Collections.singleton(messagePart))
-//            mileageSender.requestSend(mMetadata)
             messagesAdapter.clearAllFormFields()
             val message = createDummyMapsMessage(applicationContext)
             messagesAdapter.addItem(message!!)
             messagesRv.scrollToPosition(0)
-//            } else {
-////                val messageModel = SurfaceApp.messageModelManager.getNewModel(message!!) as MileageModel
-//
-//            }
         }
 
         sendFab.setOnClickListener {
@@ -196,6 +182,7 @@ class MainActivity : AppCompatActivity(), LayerChangeEventListener {
                 convo?.send(message)
                 messagesAdapter.addItem(message!!)
                 messagesRv.scrollToPosition(0)
+                messageEt.clearComposingText()
             }
         }
     }
@@ -248,5 +235,10 @@ class MainActivity : AppCompatActivity(), LayerChangeEventListener {
             }
         }
         super.onActivityResult(requestCode, resultCode, data)
+    }
+
+    override fun onBackPressed() {
+        finish()
+        super.onBackPressed()
     }
 }

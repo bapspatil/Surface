@@ -108,7 +108,7 @@
 		<RelativeLayout
 				android:id="@+id/mileageDistanceContainer"
 				android:layout_width="match_parent"
-				android:background="@color/md_light_green_500"
+				android:background="@drawable/bg_green"
 				android:visibility="gone"
 				android:layout_height="match_parent"
 				android:layout_gravity="center_horizontal">

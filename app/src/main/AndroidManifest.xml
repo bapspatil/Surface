@@ -38,6 +38,7 @@
 
     <activity android:name=".ui.LoginActivity"
               android:launchMode="singleTop"
+              android:noHistory="true"
               android:screenOrientation="portrait"
               android:theme="@style/Theme.AppCompat.Light.NoActionBar">
       <intent-filter>

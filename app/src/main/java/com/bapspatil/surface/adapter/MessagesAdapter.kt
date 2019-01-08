@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader
 import com.layer.sdk.messaging.Message
 import kotlinx.android.synthetic.main.item_message_text.view.*
 import kotlinx.android.synthetic.main.item_mileage_message_view.view.*
+import org.jetbrains.anko.backgroundDrawable
 import org.jetbrains.anko.toast
 import java.io.InputStreamReader
 
@@ -53,7 +54,7 @@ class MessagesAdapter(
         when (viewType) {
             VIEW_TYPE_TEXT_RECEIVED -> {
                 val view = LayoutInflater.from(mContext).inflate(R.layout.item_message_text, parent, false)
-                view.messageBodyTextView.setBackgroundColor(ContextCompat.getColor(mContext, R.color.md_grey_300))
+                view.messageBodyTextView.backgroundDrawable = ContextCompat.getDrawable(mContext, R.drawable.bg_grey)
                 view.messageBodyTextView.setTextColor(ContextCompat.getColor(mContext, R.color.md_black_1000))
 
                 val params = LinearLayout.LayoutParams(

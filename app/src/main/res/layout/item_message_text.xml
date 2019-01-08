@@ -15,7 +15,7 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       style="@style/TextAppearance.AppCompat.Body1"
-      android:background="@color/md_light_blue_500"
+      android:background="@drawable/bg_blue"
       android:textColor="@color/md_white_1000"
       android:padding="16dp"
       android:layout_gravity="end"
