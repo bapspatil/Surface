@@ -30,7 +30,9 @@ android {
     }
     buildTypes.each {
         it.buildConfigField 'String', 'LAYER_APP_ID', LayerAppId
+        it.buildConfigField 'String', 'GOOGLE_MAPS_API_KEY', GoogleMapsApiKey
         it.resValue 'string', 'R_LAYER_APP_ID', LayerAppId
+        it.resValue 'string', 'R_GOOGLE_MAPS_API_KEY', GoogleMapsApiKey
     }
 }
 
@@ -59,6 +61,8 @@ dependencies {
 
     implementation 'com.google.firebase:firebase-core:16.0.6'
     implementation 'com.google.firebase:firebase-messaging:17.3.4'
+    implementation 'com.google.android.gms:play-services-places:16.0.0'
+    implementation 'com.google.android.gms:play-services-maps:16.0.0'
 
     testImplementation "junit:junit:4.12"
     androidTestImplementation "com.android.support.test:runner:1.0.2"
