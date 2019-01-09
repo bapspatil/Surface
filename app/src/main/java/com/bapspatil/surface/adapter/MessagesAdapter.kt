@@ -158,14 +158,14 @@ class MessagesAdapter(
             val mimeType = iterator.next().mimeType
             when (mimeType) {
                 "text/plain" -> {
-                    if (mMessagesList[position].sender!!.userId != SurfaceApp.layerClient?.authenticatedUser!!.userId) {
+                    if (mMessagesList[position].sender != null && mMessagesList[position].sender!!.userId != SurfaceApp.layerClient?.authenticatedUser!!.userId) {
                         return VIEW_TYPE_TEXT_RECEIVED
                     } else {
                         return VIEW_TYPE_TEXT_SENT
                     }
                 }
                 MileageModel.MIME_TYPE -> {
-                    if (mMessagesList[position].sender!!.userId != SurfaceApp.layerClient?.authenticatedUser!!.userId) {
+                    if (mMessagesList[position].sender != null && mMessagesList[position].sender!!.userId != SurfaceApp.layerClient?.authenticatedUser!!.userId) {
                         return VIEW_TYPE_MAPS_RECEIVED
                     } else {
                         return VIEW_TYPE_MAPS_SENT
