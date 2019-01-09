@@ -3,7 +3,7 @@
 
 An Android chat messaging app using Layer's XDK.
 
-Two types of messages are supported:
+This app supports two types of messages:
 
 1. Text messages
 2. Custom Mileage messages
@@ -21,7 +21,7 @@ User 2: `hello@hackertronix.com` (Password: `surface`)
 * Google Maps API key
 * Project setup on Firebase (`google-services.json`)
 
-Place your `google-services.json` file in the `/app` folder. Once you have your **Layer App ID** & **Google Maps API key**, add the following lines your `gradle.properties` file:
+Place your `google-services.json` file in the `/app` folder. Once you have your **Layer App ID** & **Google Maps API key**, add the following lines to your `gradle.properties` file:
 
 ```
 LayerAppId="<insert your Layer App ID here>"
