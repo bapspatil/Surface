@@ -3,6 +3,8 @@
 
 An Android chat messaging app using Layer's XDK.
 
+[Download APK](https://raw.githubusercontent.com/bapspatil/Surface/master/Surface-BapusahebPatil.apk)
+
 This app supports two types of messages:
 
 1. Text messages
