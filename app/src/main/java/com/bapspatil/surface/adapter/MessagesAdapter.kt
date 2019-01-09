@@ -96,7 +96,6 @@ class MessagesAdapter(
         return TextMessageVH(view)
     }
 
-
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val setOfMsgParts = mMessagesList[position].messageParts
         val iterator = setOfMsgParts.iterator()
@@ -127,17 +126,17 @@ class MessagesAdapter(
                 if (mName != null) {
                     emptyMapsHolder.nameEt.setText(mName)
                 } else {
-                    emptyMapsHolder.nameEt.clearComposingText()
+                    emptyMapsHolder.nameEt.text.clear()
                 }
                 if (mOrigin != null) {
                     emptyMapsHolder.startLocationEt.setText(mOrigin)
                 } else {
-                    emptyMapsHolder.startLocationEt.clearComposingText()
+                    emptyMapsHolder.startLocationEt.text.clear()
                 }
                 if (mDestination != null) {
                     emptyMapsHolder.endLocationEt.setText(mDestination)
                 } else {
-                    emptyMapsHolder.endLocationEt.clearComposingText()
+                    emptyMapsHolder.endLocationEt.text.clear()
                 }
                 if (mMileageDistance != null) {
                     emptyMapsHolder.buttonsContainer.visibility = View.GONE
@@ -285,7 +284,6 @@ class MessagesAdapter(
         mOrigin = null
         mDestination = null
         mMileageDistance = null
-        notifyItemChanged(0)
     }
 
     interface OriginPickerListener {
