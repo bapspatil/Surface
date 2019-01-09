@@ -1,5 +1,5 @@
 
-# Surface
+# <img src="./art/app_icon_512.png" width="22px">&nbsp;Surface
 
 An Android chat messaging app using Layer's XDK.
 
