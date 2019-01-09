@@ -183,6 +183,7 @@ class MainActivity : AppCompatActivity(), LayerChangeEventListener {
                 messagesAdapter.addItem(message!!)
                 messagesRv.scrollToPosition(0)
                 messageEt.clearComposingText()
+                messageEt.text.clear()
             }
         }
     }
