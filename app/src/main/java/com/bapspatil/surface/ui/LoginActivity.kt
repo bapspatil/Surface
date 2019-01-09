@@ -35,6 +35,7 @@ class LoginActivity : AppCompatActivity(), LayerAuthenticationListener {
             btnLogin.setOnClickListener {
                 if (isValidCredentials(emailEditText.text.toString(), passwordEditText.text.toString())) {
                     mProgressDialog = ProgressDialog(this)
+                    mProgressDialog.setMessage("Signing in...")
                     if(!mProgressDialog.isShowing) mProgressDialog.show()
                     SurfaceApp.layerClient?.authenticate()
                 }
