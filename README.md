@@ -15,6 +15,19 @@ Layer's support for custom messages has been used to implement the Mileage messa
 User 1: `hi@bapspatil.com` (Password: `surface`)<br>
 User 2: `hello@hackertronix.com` (Password: `surface`)
 
+## Prerequisites
+
+* Layer App ID
+* Google Maps API key
+* Project setup on Firebase (`google-services.json`)
+
+Place your `google-services.json` file in the `/app` folder and . Once you have your **Layer App ID** & **Google Maps API key**, add the following lines your `gradle.properties` file:
+
+```
+LayerAppId="<insert your Layer App ID here>"
+GoogleMapsApiKey="<insert your Google Maps API key here>"
+```
+
 ## Demo
 
 ![Demo GIF](./art/demo.gif)
