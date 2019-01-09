@@ -1,5 +1,6 @@
 package com.bapspatil.surface.ui
 
+import android.app.ProgressDialog
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.text.TextUtils
@@ -21,6 +22,8 @@ import retrofit2.Response
 
 class LoginActivity : AppCompatActivity(), LayerAuthenticationListener {
 
+    private lateinit var mProgressDialog: ProgressDialog
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         SurfaceApp.layerClient?.registerAuthenticationListener(this)
@@ -31,6 +34,8 @@ class LoginActivity : AppCompatActivity(), LayerAuthenticationListener {
 
             btnLogin.setOnClickListener {
                 if (isValidCredentials(emailEditText.text.toString(), passwordEditText.text.toString())) {
+                    mProgressDialog = ProgressDialog(this)
+                    if(!mProgressDialog.isShowing) mProgressDialog.show()
                     SurfaceApp.layerClient?.authenticate()
                 }
             }
@@ -48,6 +53,7 @@ class LoginActivity : AppCompatActivity(), LayerAuthenticationListener {
         Log.d("LAYER_AUTH", "User authenticated: $userId")
         longToast("Welcome to Surface!")
 
+        if(mProgressDialog.isShowing) mProgressDialog.hide()
         startActivity<MainActivity>()
     }
 
